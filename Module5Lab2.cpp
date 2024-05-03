@@ -4,7 +4,7 @@
 #define AIN2 p16
 #define STOP_BUTTON p17
 
-#define RED_LED p9
+#define RED_LED p5
 #define SPEAKER p21
 
 
@@ -41,14 +41,14 @@ void warbleSpeakerFlashLed() {
 
 void speakerContinuous() {
 	for(float i=0; i<.5; i+=.05) {
-		speaker.period(.003125-(.002*.5));
+		speaker.period(SPEAKER_PERIOD-(.002*.5));
 		speaker = .05*.5;
 	}
 	
 	wait_ms(500);
 
 	for(float i=0; i<.5; i+=.05) {
-		speaker.period(.003125-(.002*.5));
+		speaker.period(SPEAKER_PERIOD-(.002*.5));
 		speaker = .05*.5;
 	}
 }
@@ -60,14 +60,14 @@ void speakerBeep() {
 
 void speakerTwoTone() {
 	for(float i=0; i<.5; i+=.05) {
-		speaker.period(.003125-(.002*.7));
+		speaker.period(SPEAKER_PERIOD-(.002*.7));
 		speaker = .05*.5;
 	}
 	
 	wait_ms(500);
 
 	for(float i=0; i<.5; i+=.05) {
-		speaker.period(.003125-(.002*.5));
+		speaker.period(SPEAKER_PERIOD-(.002*.5));
 		speaker = .05*.5;
 	}	
 }
